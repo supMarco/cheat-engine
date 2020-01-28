@@ -3311,11 +3311,7 @@ begin
     begin
       address := foundlist3.Items[foundlist3.itemindex].Caption;
       address := ExtractDelimited(1,address,delimiters);
-      Try
-        clipboard.AsText := symhandler.getNameFromAddress(StrToQWordEx('$'+address))
-      except
-        clipboard.AsText := address
-      end;
+      clipboard.AsText := symhandler.getNameFromAddress(StrToQWordEx('$'+address))
     end
   else
   if foundlist3.SelCount > 1 then
@@ -3326,11 +3322,7 @@ begin
       begin
         address := foundlist3.Items[i].Caption;
         address := ExtractDelimited(1,address,delimiters);
-        Try
-          temp := temp + symhandler.getNameFromAddress(StrToQWordEx('$'+address)) + sLineBreak;
-        except
-          temp := temp + address + sLineBreak;
-        end;
+        temp := temp + symhandler.getNameFromAddress(StrToQWordEx('$'+address)) + sLineBreak;
       end
     end;
     clipboard.AsText := temp;
